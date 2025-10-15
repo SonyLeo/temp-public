@@ -146,6 +146,10 @@ const validateAsrRequest = (req, res, next) => {
 
 // ==================== 路由 ====================
 
+app.get('/api/asr/ping',  async (req, res, next) => {
+  return res.json({ success: true, data: 'ping success', timestamp: new Date().toISOString() })
+})
+
 // ASR 语音识别接口
 app.post('/api/asr/recognize', upload.single('audio'), validateAsrRequest, async (req, res, next) => {
   try {
